@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+    stages{
+        stage("Clean Up"){
+            steps{
+                deleteDir()
+            }
+        }
+        stage("Clone Repo"){
+            steps{
+                echo "Colne"
+            }
+        }
+        stage("Build"){
+            steps{
+                dir("LoginApp"){
+                    echo "Build"
+                }
+            }
+        }
+        stage("Test"){
+            steps{
+                dir("LoginApp"){
+                    echo "Test"
+                }
+            }
+        }
+
+    }
+}
